@@ -12,11 +12,9 @@ export default function Sidebar() {
 
     return (
         <div className="wrapper">
-            <div ng-controller="profile" className="sidebar" id="options-sidebar">
+            <div className="sidebar" id="options-sidebar">
                 <div className="profile-text">Profile</div>
                 <button
-                    ng-clicked="onClicked()"
-                    ng-disabled="isDis"
                     id="profile-button"
                     type="button"
                     onClick={showLogin}
