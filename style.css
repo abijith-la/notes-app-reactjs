@@ -26,6 +26,7 @@ button:focus {
 .sidebar {
     width: 20%;
     height: 100vh;
+    padding: 0.2rem;
 }
 
 .sidebar--note {
@@ -34,12 +35,14 @@ button:focus {
 
 .sidebar--header {
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    padding-right: 4%;
+    padding-left: 4%;
 }
 
 .sidebar--header > h3 {
     font-size: 1.75rem;
+    margin-right: auto;
 }
 
 .new-note {
@@ -73,6 +76,7 @@ button:focus {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: gray solid 1px;
 }
 
 .title--delete {
@@ -92,8 +96,8 @@ button:focus {
 
 .text-snippet {
     padding-inline: 5px;
-    font-size: 0.8rem;
-    font-weight: 400;
+    font-size: 0.9rem;
+    font-weight: 700;
     line-height: 1.2rem;
     color: #4A4E74;
     white-space: nowrap;
@@ -111,8 +115,7 @@ button:focus {
 }
 
 .gutter {
-    background-color: #eee;
-
+    background-color: #eee; 
     background-repeat: no-repeat;
     background-position: 50%;
 }
@@ -196,4 +199,24 @@ button:focus {
     border-top-right-radius: 2px;
     top: -7px;
     left: -2px
-} 
+}
+
+.dark-mode-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
+.dark{
+    color: white;
+    background-color: black;
+}
+
+.invert {
+    filter: invert();
+}
+
+.react-mde {
+    color: black;
+}

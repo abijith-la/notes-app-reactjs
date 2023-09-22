@@ -9,6 +9,21 @@ export default function App() {
     const [notes, setNotes] = React.useState([])
     const [currentNoteId, setCurrentNoteId] = React.useState("")
     const [tempNoteText, setTempNoteText] = React.useState("")
+    const [darkMode, setDarkMode] = React.useState(true)
+
+    function toggleDarkMode() {
+        setDarkMode(prev => !prev)
+    }
+
+    React.useEffect(() => {
+        const gutter = document.querySelector('.gutter')
+        if (!darkMode && gutter ) {
+            gutter.style.backgroundColor = "#111"
+        }
+        else if (gutter) {
+            gutter.style.backgroundColor = "#eee"
+        }
+    }, [darkMode])
 
     const currentNote =
         notes.find(note => note.id === currentNoteId)
@@ -74,7 +89,7 @@ export default function App() {
     }
 
     return (
-        <main>
+        <main className={darkMode?"":"dark"}>
             {
                 notes.length > 0
                     ?
@@ -89,11 +104,14 @@ export default function App() {
                             setCurrentNoteId={setCurrentNoteId}
                             newNote={createNewNote}
                             deleteNote={deleteNote}
+                            toggleDarkMode={toggleDarkMode}
+                            darkMode={darkMode}
                         />
                         {
                             <Editor
                                 tempNoteText={tempNoteText}
                                 setTempNoteText={setTempNoteText}
+                                darkMode={darkMode}
                             />
                         }
                     </Split>
