@@ -220,3 +220,7 @@ button:focus {
 .react-mde {
     color: black;
 }
+
+.whitetext {
+    color: white;
+}
