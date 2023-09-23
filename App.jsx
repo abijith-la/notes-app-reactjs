@@ -9,7 +9,7 @@ export default function App() {
     const [notes, setNotes] = React.useState([])
     const [currentNoteId, setCurrentNoteId] = React.useState("")
     const [tempNoteText, setTempNoteText] = React.useState("")
-    const [darkMode, setDarkMode] = React.useState(true)
+    const [darkMode, setDarkMode] = React.useState(false)
 
     function toggleDarkMode() {
         setDarkMode(prev => !prev)
@@ -23,7 +23,7 @@ export default function App() {
         else if (gutter) {
             gutter.style.backgroundColor = "#eee"
         }
-    }, [darkMode])
+    }, [darkMode, notes])
 
     const currentNote =
         notes.find(note => note.id === currentNoteId)
@@ -116,7 +116,7 @@ export default function App() {
                         }
                     </Split>
                     :
-                    <div className="no-notes">
+                    <div className={`no-notes ${darkMode? "" : "dark"}`}>
                         <h1>You have no notes</h1>
                         <button
                             className="first-note"
